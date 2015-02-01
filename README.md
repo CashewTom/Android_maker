@@ -24,6 +24,6 @@ Installボタンを押す。
 Target version -> ターゲットのandroidのバージョン  
 Name           -> プロジェクト名  
 Activity       -> メインアクティビティの名前  
-Path           -> プロジェクトのディレクトリ名  
+Directory name -> プロジェクトのディレクトリ名  
 Package        -> パッケージ名  
 
