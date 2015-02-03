@@ -15,6 +15,9 @@ namespace Android_Maker
         public MyForm()
         {
             InitializeComponent();
+            button_compile.Enabled = false;
+            button_create.Enabled = false;
+            button_install.Enabled = false;
         }
 
         private void button_change_Click(object sender, EventArgs e)
@@ -24,6 +27,9 @@ namespace Android_Maker
             if (folderDialog.ShowDialog(this) == DialogResult.OK)
             {
                 linkLabel1.Text = folderDialog.SelectedPath;
+                button_compile.Enabled = true;
+                button_create.Enabled = true;
+                button_install.Enabled = true;
             }
         }
 
@@ -31,18 +37,20 @@ namespace Android_Maker
         {
             if (!linkLabel1.Text.Equals("None"))
             {
-                String str = "create project --target ";
+                String str = "/c android create project --target ";
                 str += target_tb.Text;
                 str += " --name " + name_tb.Text;
                 str += " --activity " + activity_tb.Text;
-                str += " --path " + linkLabel1.Text + "\\" + directory_tb.Text;
+                str += " --path " + linkLabel1.Text+"\\"+directory_tb.Text;
                 str += " --package " + package_tb.Text;
 
+                
                 System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo.FileName = "android";
+                process.StartInfo.FileName = System.Environment.GetEnvironmentVariable("ComSpec");
                 process.StartInfo.Arguments = str;
                 FormConsole fc = new FormConsole();
                 fc.doProcess(process);
+                process.WaitForExit();
                 linkLabel1.Text = linkLabel1.Text + "\\" + directory_tb.Text;
             }
         }
@@ -53,8 +61,8 @@ namespace Android_Maker
             {
                 System.Diagnostics.Process process = new System.Diagnostics.Process();
                 process.StartInfo.WorkingDirectory = linkLabel1.Text;
-                process.StartInfo.FileName = "ant.bat";
-                process.StartInfo.Arguments = "debug";
+                process.StartInfo.FileName = System.Environment.GetEnvironmentVariable("ComSpec");
+                process.StartInfo.Arguments = "/c ant.bat debug";
                 FormConsole fc = new FormConsole();
                 fc.doProcess(process);
             }
@@ -80,6 +88,14 @@ namespace Android_Maker
 
                 process.StartInfo.Arguments = "install bin\\" + name_tb.Text + "-debug.apk";
                 fc.doProcess(process);
+            }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (!linkLabel1.Text.Equals("None"))
+            {
+                System.Diagnostics.Process.Start(linkLabel1.Text);
             }
         }
     }
