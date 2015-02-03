@@ -17,7 +17,7 @@ namespace Android_Maker
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_change_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog folderDialog = new FolderBrowserDialog();
             folderDialog.Description = "Please select your project.";
@@ -27,7 +27,7 @@ namespace Android_Maker
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button_create_Click(object sender, EventArgs e)
         {
             if (!linkLabel1.Text.Equals("None"))
             {
@@ -37,42 +37,49 @@ namespace Android_Maker
                 str += " --activity " + activity_tb.Text;
                 str += " --path " + linkLabel1.Text + "\\" + directory_tb.Text;
                 str += " --package " + package_tb.Text;
-                System.Diagnostics.Process.Start("android", @str);
+
+                System.Diagnostics.Process process = new System.Diagnostics.Process();
+                process.StartInfo.FileName = "android";
+                process.StartInfo.Arguments = str;
+                FormConsole fc = new FormConsole();
+                fc.doProcess(process);
                 linkLabel1.Text = linkLabel1.Text + "\\" + directory_tb.Text;
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void button_compile_Click(object sender, EventArgs e)
         {
             if (!linkLabel1.Text.Equals("None"))
             {
-                System.Diagnostics.ProcessStartInfo process = new System.Diagnostics.ProcessStartInfo();
-                process.WorkingDirectory = linkLabel1.Text;
-                process.FileName = "ant.bat";
-                process.Arguments = "debug";
-                System.Diagnostics.Process.Start(process);
+                System.Diagnostics.Process process = new System.Diagnostics.Process();
+                process.StartInfo.WorkingDirectory = linkLabel1.Text;
+                process.StartInfo.FileName = "ant.bat";
+                process.StartInfo.Arguments = "debug";
+                FormConsole fc = new FormConsole();
+                fc.doProcess(process);
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void button_install_Click(object sender, EventArgs e)
         {
             if (!linkLabel1.Text.Equals("None"))
             {
                 System.Diagnostics.Process process = new System.Diagnostics.Process();
                 process.StartInfo.WorkingDirectory = linkLabel1.Text;
                 process.StartInfo.FileName = "adb";
+                FormConsole fc = new FormConsole();
+
                 process.StartInfo.Arguments = "kill-server";
-                process.Start();
-                process.WaitForExit();
+                fc.doProcess(process);
+
                 process.StartInfo.Arguments = "start-server";
-                process.Start();
-                process.WaitForExit();
+                fc.doProcess(process);
+
                 process.StartInfo.Arguments = "devices";
-                process.Start();
-                process.WaitForExit();
-                process.StartInfo.Arguments = "install bin\\"+name_tb.Text+"-debug.apk";
-                process.Start();
-                process.WaitForExit();
+                fc.doProcess(process);
+
+                process.StartInfo.Arguments = "install bin\\" + name_tb.Text + "-debug.apk";
+                fc.doProcess(process);
             }
         }
     }

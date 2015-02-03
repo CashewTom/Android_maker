@@ -30,10 +30,10 @@
         {
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.button_change = new System.Windows.Forms.Button();
+            this.button_create = new System.Windows.Forms.Button();
+            this.button_compile = new System.Windows.Forms.Button();
+            this.button_install = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.package_tb = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -61,7 +61,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.button_change);
             this.groupBox1.Controls.Add(this.linkLabel1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -70,45 +70,45 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Directory";
             // 
-            // button1
+            // button_change
             // 
-            this.button1.Location = new System.Drawing.Point(230, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(74, 31);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Change";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button_change.Location = new System.Drawing.Point(230, 13);
+            this.button_change.Name = "button_change";
+            this.button_change.Size = new System.Drawing.Size(74, 31);
+            this.button_change.TabIndex = 1;
+            this.button_change.Text = "Change";
+            this.button_change.UseVisualStyleBackColor = true;
+            this.button_change.Click += new System.EventHandler(this.button_change_Click);
             // 
-            // button4
+            // button_create
             // 
-            this.button4.Location = new System.Drawing.Point(12, 68);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(79, 29);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Create";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button_create.Location = new System.Drawing.Point(12, 68);
+            this.button_create.Name = "button_create";
+            this.button_create.Size = new System.Drawing.Size(79, 29);
+            this.button_create.TabIndex = 5;
+            this.button_create.Text = "Create";
+            this.button_create.UseVisualStyleBackColor = true;
+            this.button_create.Click += new System.EventHandler(this.button_create_Click);
             // 
-            // button5
+            // button_compile
             // 
-            this.button5.Location = new System.Drawing.Point(130, 68);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(79, 29);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "Compile";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button_compile.Location = new System.Drawing.Point(130, 68);
+            this.button_compile.Name = "button_compile";
+            this.button_compile.Size = new System.Drawing.Size(79, 29);
+            this.button_compile.TabIndex = 6;
+            this.button_compile.Text = "Compile";
+            this.button_compile.UseVisualStyleBackColor = true;
+            this.button_compile.Click += new System.EventHandler(this.button_compile_Click);
             // 
-            // button6
+            // button_install
             // 
-            this.button6.Location = new System.Drawing.Point(243, 68);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(79, 29);
-            this.button6.TabIndex = 7;
-            this.button6.Text = "Install";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button_install.Location = new System.Drawing.Point(243, 68);
+            this.button_install.Name = "button_install";
+            this.button_install.Size = new System.Drawing.Size(79, 29);
+            this.button_install.TabIndex = 7;
+            this.button_install.Text = "Install";
+            this.button_install.UseVisualStyleBackColor = true;
+            this.button_install.Click += new System.EventHandler(this.button_install_Click);
             // 
             // groupBox2
             // 
@@ -220,9 +220,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(334, 262);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button_install);
+            this.Controls.Add(this.button_compile);
+            this.Controls.Add(this.button_create);
             this.Controls.Add(this.groupBox1);
             this.MaximumSize = new System.Drawing.Size(350, 300);
             this.MinimumSize = new System.Drawing.Size(350, 300);
@@ -240,10 +240,10 @@
 
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button_change;
+        private System.Windows.Forms.Button button_create;
+        private System.Windows.Forms.Button button_compile;
+        private System.Windows.Forms.Button button_install;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox package_tb;
         private System.Windows.Forms.Label label6;
